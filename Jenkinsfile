@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         DOCKERHUB_USERNAME= 'imadfa01'
-        IMAGE_NAME = 'my-docker-image'
+        IMAGE_NAME = 'simpleapi_devops_cicd'
         IMAGE_TAG = 'latest'
     }
 
@@ -33,7 +33,7 @@ pipeline {
          stage('Push image to hub') {
               steps {
                   script{
-                    
+
                       withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
                               sh "docker login -u ${DOCKERHUB_USERNAME} -p ${dockerhubpwd}"
                               sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
