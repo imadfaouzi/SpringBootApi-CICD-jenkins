@@ -10,11 +10,13 @@ public class GreetingController {
 
     @GetMapping("/")
     public String root() {
-        return String.format("Hello, how are you");
+        return String.format("Hello, how are you 2nd Version");
     }
 
     @GetMapping("/greeting")
     public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return String.format("Hello, %s! how are you", name);
     }
+
+
 }
